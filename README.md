@@ -1,5 +1,9 @@
 # Struture and interpretation of Computer Programs
 
+### Table of Contents
+
+- [1 The Elements of Programming:](#the-elements-of-programming)
+
 ## The Elements of Programming:
 
 - Expressions
