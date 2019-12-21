@@ -2,7 +2,7 @@
 
 ### Table of Contents
 
-- [1 The Elements of Programming:](#the-elements-of-programming)
+- [1 The Elements of Programming](#the-elements-of-programming)
 
 ## The Elements of Programming:
 
