@@ -33,6 +33,17 @@ Expressions such as these, formed by delimiting a list of expressions within par
 1. Evaluate the subexpressions of the combination.
 2. Apply the procedure that is the value of the leftmost subexpression (the operator) to the arguments that are the values of the other subexpressions (the operands).
 
+`(* (+ 2 (* 4 6)) (+ 3 5 7))`
+Requires that the evaluation rule be applied to four different combinations.
+
+`We take care of the primitive cases by stipulating that:`
+
+1. the values of numerals are the numbers that they name
+2. the values of built-in operators are the machine instruction sequences that carry out the corresponding operations
+3. the values of other names are the objects associated with those names in the environment
+
+We may regard the second rule as a special case of the third one by stipulating that symbols such as + and \* are also included in the global environment, and are associated with the sequences of machine instructions that are their `values`.
+
 ### Compound Procedures
 
 ### The Substitution Model for Procedure Application
