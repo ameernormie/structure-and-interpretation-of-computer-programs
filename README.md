@@ -82,6 +82,24 @@ and finally to
 
 The process we have just described is called the **substitution model** for procedure application.
 
+**Applicative order versus normal order**
+Normally the interpreter first evaluates the operator and operands and then applies the resulting procedure to the resulting arguments. This is not the only way to perform evaluation. An alternative evaluation model would not evaluate the operands until their values were needed. Instead it would first substitute operand expressions for parameters until it obtained an expression involving only primitive operators, and would then perform the evaluation.
+If we used this method, the evaluation of
+`(f 5)`
+would proceed according to the sequence of expansions
+`(sum-of-squares (+ 5 1) (* 5 2))`
+`(+ (square (+ 5 1)) (square (* 5 2)) )`
+`(+ (* (+ 5 1) (+ 5 1)) (* (* 5 2) (* 5 2)))`
+followed by the reductions
+`(+ (* 6 6) (* 10 10))`
+`(+ 36 100)`
+`136`
+
+This gives the same answer as our previous evaluation model, but the process is different. In particular, the evaluations of (+ 5 1) and (_ 5 2) are each performed twice here, corresponding to the reduction of the expression
+`(_ x x)`with x replaced respectively by`(+ 5 1)`and`(\* 5 2)`.
+
+This alternative `fully expand and then reduce` evaluation method is known as **`normal-order evaluation`**, in contrast to the `evaluate the arguments and then apply` method that the interpreter actually uses, which is called applicative-order **`evaluation`**.
+
 ### Conditional Expressions and Predicates
 
 ### Example: Square Roots by Newton's Method
