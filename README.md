@@ -104,4 +104,10 @@ This alternative `fully expand and then reduce` evaluation method is known as **
 
 ### Example: Square Roots by Newton's Method
 
+There is an important difference between mathematical functions and computer procedures.
+As a case in point, consider the problem of computing square roots. We can define the square-root function as
+`sqrt(x) = the y such that y >= 0 and y(square) = x`
+This describes a perfectly legitimate mathematical function. We could use it to recognize whether one number is the square root of another, or to derive facts about square roots in general. On the other hand, the definition does not describe a procedure. Indeed, it tells us almost nothing about how to actually find the square root of a given number
+`The contrast between function and procedure is a reflection of the general distinction between describing properties of things and describing how to do things, or, as it is sometimes referred to, the distinction between declarative knowledge and imperative knowledge. In mathematics we are usually concerned with declarative (what is) descriptions, whereas in computer science we are usually concerned with imperative (how to) descriptions.`
+
 ### Procedures as Black Box Abstractions
