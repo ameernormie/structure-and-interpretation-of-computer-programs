@@ -46,6 +46,16 @@ We may regard the second rule as a special case of the third one by stipulating 
 
 ### Compound Procedures
 
+A powerful programming language must have these elements in it.
+
+- Numbers and arithmetic operations are primitive data and procedures.
+- Nesting of combinations provides a means of combining operations.
+- Definitions that associate names with values provide a limited means of abstraction.
+
+Now we will learn about procedure definitions, a much more powerful abstraction technique by which a compound operation can be given a name and then referred to as a unit.
+The general form of a procedure definition is
+`(define (<name> <formal parameters>) <body>)`
+
 ### The Substitution Model for Procedure Application
 
 ### Conditional Expressions and Predicates
