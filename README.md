@@ -58,6 +58,30 @@ The general form of a procedure definition is
 
 ### The Substitution Model for Procedure Application
 
+To evaluate a combination whose operator names a compound procedure, the interpreter follows much the same process as for combinations whose operators name primitive procedures. That is, the interpreter evaluates the elements of the combination and applies the procedure (which is the value of the operator of the combination) to the arguments (which are the values of the operands of the combination).
+
+We can assume that the mechanism for applying primitive procedures to arguments is built into the interpreter. For compound procedures, the application process is as follows:
+
+- To apply a compound procedure to arguments, evaluate the body of the procedure with each formal parameter replaced by the corresponding argument.
+
+To illustrate this process, let's evaluate the combination
+`(f 5)`
+where f is the procedure `(define (square x) (* x x))`. We begin by retrieving the body of f:
+
+`(sum-of-squares (+ a 1) (* a 2))`
+Then we replace the formal parameter a by the argument 5:
+`(sum-of-squares (+ 5 1) (* 5 2))`
+Thus the problem reduces to the evaluation of a combination with two operands and an operator sum-of-squares.Evaluating this combination involves three subproblems. We must evaluate the operator to get the procedure to be applied, and we must evaluate the operands to get the arguments. Now `(+ 5 1)` produces `6` and `(* 5 2)` produces `10`, so we must apply the sum-of-squares procedure to `6` and `10`. These values are substituted for the formal parameters x and y in the body of sum-of-squares, reducing the expression to
+`(+ (square 6) (square 10))`
+If we use the definition of square, this reduces to
+`(+ (* 6 6) (* 10 10))`
+which reduces by multiplication to
+`(+ 36 100)`
+and finally to
+`136`
+
+The process we have just described is called the **substitution model** for procedure application.
+
 ### Conditional Expressions and Predicates
 
 ### Example: Square Roots by Newton's Method
