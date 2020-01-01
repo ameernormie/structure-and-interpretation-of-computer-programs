@@ -13,6 +13,7 @@
   - [1.8 Procedures as Black-Box Abstractions](#procedures-as-black-box-abstractions)
 - [2 Procedures and the processes they generate](#procedures-and-the-processes-they-generate)
   - [2.1 Linear Recursion and Iteration](#linear-recursion-and-iteration)
+    - [Tail Recursive](#tail-recursive)
   - [2.2 Tree Recursion](#tree-recursion)
 
 `primitive expressions, which represent the simplest entities the language is concerned with`
