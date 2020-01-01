@@ -13,6 +13,7 @@
   - [1.8 Procedures as Black-Box Abstractions](#procedures-as-black-box-abstractions)
 - [2 Procedures and the processes they generate](#procedures-and-the-processes-they-generate)
   - [2.1 Linear Recursion and Iteration](#linear-recursion-and-iteration)
+  - [2.2 Tree Recursion](#tree-recursion)
 
 `primitive expressions, which represent the simplest entities the language is concerned with`
 `means of combination, by which compound elements are built from simpler ones, and`
@@ -212,3 +213,27 @@ We must be careful not to confuse the notion of a `recursive process` with the n
 ###### Tail Recursive
 
 Common languages are designed in a way that the interpretation of any recursive procedure consumes an amount of memory that grows with the number of procedure calls, even when the process described is, in principle, iterative. The implementation of **Scheme** we shall consider in chapter 5 does not share this defect. It will execute an iterative process in constant space, even if the iterative process is described by a recursive procedure. An implementation with this property is called `tail-recursive`. With a tail-recursive implementation, iteration can be expressed using the ordinary procedure call mechanism, so that special iteration constructs are useful only as syntactic sugar.
+
+### Tree Recursion
+
+Another common pattern of computation is called tree recursion. As an example, consider computing the sequence of Fibonacci numbers, in which each number is the sum of the preceding two:
+In general, the Fibonacci numbers can be defined by the rule
+
+```
+Fib(n) = 0  if n = 0
+Fib(n) = 1  if n = 1
+Fib(n) = Fib(n-1) + Fib(n-2)  otherwise
+```
+
+We can immediately translate this definition into a recursive procedure for computing Fibonacci numbers:
+
+```
+(define (fib n)
+  (cond ((= n 0) 0)
+        ((= n 1) 1)
+        (else (+ (fib (- n 1))
+                 (fib (- n 2))))))
+```
+
+Consider the pattern of this computation. To compute (fib 5), we compute (fib 4) and (fib 3). To compute (fib 4), we compute (fib 3) and (fib 2). In general, the evolved process looks like a tree
+This procedure is instructive as a prototypical tree recursion, but it is a terrible way to compute Fibonacci numbers because it does so much redundant computation.
