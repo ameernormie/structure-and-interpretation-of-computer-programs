@@ -259,3 +259,18 @@ It is not hard to show that, after applying this transformation n times, a and b
 ```
 
 This second method for computing Fib(n) is a linear iteration. The difference in number of steps required by the two methods -- one linear in n, one growing as fast as Fib(n) itself -- is enormous, even for small inputs.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
